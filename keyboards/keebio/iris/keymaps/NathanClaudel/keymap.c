@@ -8,6 +8,10 @@
 
 #define TABNEXT LCTL(KC_PGDN)
 #define TABPREV LCTL(KC_PGUP)
+#define TAB_LOW LT(_LOWER, KC_TAB) /* TAB on press, LOWER on hold  */
+#define BSPC_RAISE LT(_RAISE, KC_BSPC) /* BACKSPACE on press, RAISE on hold  */
+#define SPC_SHFT MT(MOD_LSFT,KC_SPC) /* SPACE on press, SHIFT on hold  */
+#define ENT_CTL MT(MOD_LCTL,KC_ENT) /* ENTRY on press, CTRL on hold */
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -30,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_HOME,          KC_ESC,  KC_N,    FR_DOT,  KC_COMM, KC_DOT,  FR_SCLN, FR_QUOT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LGUI, LT(_LOWER,KC_TAB),MT(MOD_LSFT,KC_SPC),MT(MOD_LCTL,KC_ENT),LT(_RAISE, KC_BSPC),  KC_RALT
+                                    KC_LGUI, SPC_SHFT, TAB_LOW,                 BSPC_RAISE,ENT_CTL, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
